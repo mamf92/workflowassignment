@@ -5,6 +5,7 @@ A comprehensive test project demonstrating how to set up a modern development wo
 ## 📋 Project Overview
 
 This project serves as a reference implementation for establishing best practices in a JavaScript/TypeScript development environment, including:
+
 - Fast development builds with Vite
 - Automated code formatting and linting
 - Pre-commit quality checks
@@ -32,6 +33,7 @@ VITE_APP_NAME=My App
 **Important:** Variables must be prefixed with `VITE_` to be exposed to the client-side code.
 
 ### Environment Files
+
 - `.env`: Default environment variables
 - `.env.local`: Local overrides (not committed to Git)
 - `.env.production`: Production-specific variables
@@ -63,4 +65,4 @@ VITE_APP_NAME=My App
 
 ---
 
-*This project was created as a learning exercise for modern JavaScript development workflows.*
+_This project was created as a learning exercise for modern JavaScript development workflows._
