@@ -1,24 +1,38 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import './style.css';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+async function fetchPosts() {
+  try {
+    const response = await fetch(import.meta.env.VITE_API_URL);
+    if (!response.ok) {
+      throw new Error('Failed to fetch posts');
+    }
+    const posts = await response.json();
+    displayPosts(posts);
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+    document.getElementById('app').innerHTML = '<p>Error loading posts</p>';
+  }
+}
 
-setupCounter(document.querySelector('#counter'))
+function displayPosts(posts) {
+  const app = document.getElementById('app');
+
+  let html = '<h1>Posts</h1>';
+  html += '<div class="posts-container">';
+
+  posts.forEach((post) => {
+    html += `
+      <article class="post">
+        <h2>${post.title}</h2>
+        <p class="post-meta">User ID: ${post.userId} | Post ID: ${post.id}</p>
+        <p class="post-body">${post.body}</p>
+      </article>
+    `;
+  });
+
+  html += '</div>';
+  app.innerHTML = html;
+}
+
+// Fetch posts when the page loads
+fetchPosts();

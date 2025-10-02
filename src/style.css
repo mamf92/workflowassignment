@@ -33,6 +33,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-bottom: 2rem;
 }
 
 #app {
@@ -40,6 +41,52 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+/* Posts container */
+.posts-container {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Individual post styling */
+.post {
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: left;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.post:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.2);
+  border-color: rgba(100, 108, 255, 0.3);
+}
+
+.post h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.75rem 0;
+  color: #646cff;
+  text-transform: capitalize;
+}
+
+.post-meta {
+  font-size: 0.875rem;
+  color: #888;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-body {
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 .logo {
@@ -92,5 +139,19 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+  .post {
+    background-color: #f9f9f9;
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  .post:hover {
+    box-shadow: 0 4px 12px rgba(100, 108, 255, 0.15);
+    border-color: rgba(100, 108, 255, 0.4);
+  }
+  .post-meta {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
+  .post-body {
+    color: #213547;
   }
 }
